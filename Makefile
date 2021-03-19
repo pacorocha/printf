@@ -6,42 +6,40 @@
 #    By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:45:06 by jfrancis          #+#    #+#              #
-#    Updated: 2021/03/14 14:08:43 by jfrancis         ###   ########.fr        #
+#    Updated: 2021/03/19 18:54:43 by jfrancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+LIBFT = libft.a
+
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
-LIBFT = libft.a
 FILES = ft_printf.c ft_putchar.c ft_putstr.c
 OBJS = $(FILES:.c=.o)
 RM = rm -f
-INCLUDE = ./libft
+LIBFT_PATH = ./libft
 
 %.o: %.c
-			$(CC) -c -o $@ $< $(CFLAGS)
+			$(CC) -c -I ./includes -o $@ $< $(CFLAGS)
 
-$(NAME):	$(OBJS) $(INCLUDE)
-			$(CC) $(FLAGS) -c $(FILES)
-			make -C $(INCLUDE)
-			cp libft/libft.a .
-			mv libft.a $(NAME)
+$(NAME):	$(OBJS) $(LIBFT_PATH)
+			$(CC) -I ./includes $(FLAGS) -c $(FILES)
+			make -C $(LIBFT_PATH) $(LIBFT)
+			cp $(LIBFT_PATH)/$(LIBFT) .
+			mv $(LIBFT) $(NAME)
 			ar -rcs $(NAME) $(OBJS)
-			ranlib $(NAME)
-
-			$(CC) -g -L . libftprintf.a main.c
 
 all:		$(NAME)
 
 clean:
 			$(RM) $(OBJS)
-			make -C $(INCLUDE) clean
+			make -C $(LIBFT_PATH) clean
 
 fclean:		clean
 			$(RM) $(NAME)
-			make -C $(INCLUDE) fclean
+			make -C $(LIBFT_PATH) fclean
 
 re:			fclean all
 
-.PHONY::	all clean fclean re
+.PHONY::	all clean fclean re test
