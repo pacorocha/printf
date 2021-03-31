@@ -6,7 +6,7 @@
 #    By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:45:06 by jfrancis          #+#    #+#              #
-#    Updated: 2021/03/26 19:41:30 by jfrancis         ###   ########.fr        #
+#    Updated: 2021/03/31 17:16:21 by jfrancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ LIBFT = libft.a
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
 FILES = ft_printf.c ft_putchar.c ft_putstr.c check_params.c get_char.c \
-		define_number.c get_string.c print_fill.c
+		define_number.c define_width.c get_string.c print_fill.c get_integer.c \
+		negative_case.c blank_case.c get_hex.c
 OBJS = $(FILES:.c=.o)
 RM = rm -f
 LIBFT_PATH = ./libft
