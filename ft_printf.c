@@ -6,19 +6,22 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/03/31 19:32:50 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/05 18:38:17 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include <ft_printf.h>
 
-int				get_variable(va_list args)
+int				get_variable(va_list args, t_specs *spec)
 {
 	int		n;
 
 	n = va_arg(args, int);
 	if (n < 0)
+	{
+		spec->lalign = 1;
 		n = -n;
+	}
 	return (n);
 }
 
@@ -30,12 +33,13 @@ static int		ft_parse_str(const char *str, va_list args)
 
 	i = 0;
 	spec.width = 0;
-	spec.lalign = 0;
+	spec.total_chars = 0;
 	params = "cspdiuxX";
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
+			spec.lalign = 0;
 			i++;
 			if (str[i] == '-')
 			{
@@ -56,7 +60,7 @@ static int		ft_parse_str(const char *str, va_list args)
 			}
 			if (str[i] == '*')
 			{
-				spec.width = get_variable(args);
+				spec.width = get_variable(args, &spec);
 				i++;
 			}
 			if (str[i] == '.')
@@ -70,19 +74,23 @@ static int		ft_parse_str(const char *str, va_list args)
 			}
 			if (str[i] == '*')
 			{
-				spec.prec_size = get_variable(args);
+				spec.prec_size = get_variable(args, &spec);
 				i++;
 			}
 			if (ft_strchr(params, str[i]))
 			{
-				check_params(str, i, args, spec);
+				check_params(str[i], args, &spec);
 				i++;
 			}
 		}
-		ft_putchar(str[i]);
-		i++;
+		else
+		{
+			ft_putchar(str[i]);
+			i++;
+			spec.total_chars++;
+		}
 	}
-	return (i);
+	return (spec.total_chars);
 }
 
 int				ft_printf(const char *str, ...)
@@ -92,5 +100,6 @@ int				ft_printf(const char *str, ...)
 	va_start(args, str);
 	printed_chars = ft_parse_str(str, args);
 	va_end(args);
+	printf("return: %i\n", printed_chars);
 	return (printed_chars);
 }

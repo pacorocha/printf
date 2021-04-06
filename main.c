@@ -6,11 +6,11 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 16:25:55 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/03/29 23:04:18 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/04 19:28:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include <ft_printf.h>
 
 void print_blue()
 {
@@ -124,13 +124,39 @@ int main()
 	print_yellow();
 	printf("\n################################################## char ##################################################\n\n");
 	print_white();
+	 ft_printf("ft_printf: |%c|\n", '0');
+	 printf("___printf: |%c|\n", '0');
+	 ft_printf("ft_printf: |%10c|\n", '0');
+	 printf("___printf: |%10c|\n", '0');
+	 ft_printf("ft_printf: |%-10c|\n", '0');
+	 printf("___printf: |%-10c|\n", '0');
+	 ft_printf("ft_printf: |%*c|\n", 1, '0');
+	 printf("___printf: |%*c|\n", 1,'0');
+	 ft_printf("ft_printf: |%*c|\n", 0, '0');
+	 printf("___printf: |%*c|\n", 0,'0');
+	 ft_printf("ft_printf: |%*c|\n", 2, '0');
+	 printf("___printf: |%*c|\n", 2,'0');
+	 ft_printf("ft_printf: |%*c|\n", -2, '0');
+	 printf("___printf: |%*c|\n", -2,'0');
+	 ft_printf("ft_printf: |%*c|\n", 0, '0');
+	 printf("___printf: |%*c|\n", 0,'0');
+	 ft_printf("ft_printf: |%*c|\n", 10, '0');
+	 printf("___printf: |%*c|\n", 10,'0');
+	 ft_printf("ft_printf: |%*c|\n", -10, '0');
+	 printf("___printf: |%*c|\n", -10,'0');
+	 ft_printf("ft_printf: |%*c%*c|\n", -10, '0', 10, '1');
+	 printf("___printf: |%*c%*c|\n", -10, '0', 10, '1');
 	 ft_printf("ft_printf: |%c|\n", 'x');
 	 printf("___printf: |%c|\n", 'x');
 	 ft_printf("ft_printf: |%34c|\n", 'x');
 	 printf("___printf: |%34c|\n", 'x');
+	 ft_printf("ft_printf: |%c|\n", -129);
+	 printf("___printf: |%c|\n", -129);
 	print_yellow();
 	printf("\n################################################## string ##################################################\n\n");
 	print_white();
+	 ft_printf("ft_printf: |%s|\n", "");
+	 printf("___printf: |%s|\n", "");
 	 ft_printf("ft_printf: |%2.s|\n", "42");
 	 printf("___printf: |%2.s|\n", "42");
 	 ft_printf("ft_printf: |%s|\n", "nariz");
@@ -187,7 +213,9 @@ int main()
 	/*
 	** 	pointer:
 	*/
-
+	print_yellow();
+	printf("\n################################################## pointer ##################################################\n\n");
+	print_white();
 	 ft_printf("ft_printf: |%1.p|\n", NULL);
 	 printf("___printf: |%1.p|\n", NULL);
 	 ft_printf("ft_printf: |%5.p|\n", NULL);
@@ -197,10 +225,9 @@ int main()
 	 printf("___printf: |%026.51%|\n");
 
 
-	/*
-	** 	undefined behavior:
-	*/
-
+	print_yellow();
+	printf("\n################################################## undefined behavior ##################################################\n\n");
+	print_white();
 	 ft_printf("ft_printf: |%09s|\n", "lala la");
 	printf("___printf: |%09s|\n", "lala la");
 	 ft_printf("ft_printf: |%-09s|\n", "lala la");
