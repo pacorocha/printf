@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 21:02:10 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/04 14:05:29 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:34:21 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	negative_case(int n, t_specs *spec)
 {
 	int		n_len;
 	int		output;
-	char	*number;
 
 	n = be_positive(n);
-	number = ft_itoa(n);
 	n_len = num_size(n);
 	spec->filler = ' ';
 	output = spec->width - spec->prec_size - 1;
@@ -29,6 +27,4 @@ void	negative_case(int n, t_specs *spec)
 	spec->total_chars++;
 	output = spec->prec_size - n_len;
 	print_fill(output, spec);
-	n = -(n);
-	ft_putstr(number);
 }

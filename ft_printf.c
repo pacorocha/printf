@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/05 18:38:17 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/06 19:42:41 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int				get_variable(va_list args, t_specs *spec)
 	if (n < 0)
 	{
 		spec->lalign = 1;
-		n = -n;
+		n -= n*2;
 	}
 	return (n);
 }
@@ -69,12 +69,13 @@ static int		ft_parse_str(const char *str, va_list args)
 				spec.precision = 1;
 				if (ft_isdigit(str[i]))
 					i = define_number(str, i, &spec);
-					else
-						spec.prec_size = 0;
+				else
+					spec.prec_size = 0;
 			}
 			if (str[i] == '*')
 			{
-				spec.prec_size = get_variable(args, &spec);
+				if (spec.precision == 1)
+					spec.prec_size = get_variable(args, &spec);
 				i++;
 			}
 			if (ft_strchr(params, str[i]))
@@ -100,6 +101,6 @@ int				ft_printf(const char *str, ...)
 	va_start(args, str);
 	printed_chars = ft_parse_str(str, args);
 	va_end(args);
-	printf("return: %i\n", printed_chars);
+	// printf("printed chars: %d\n", printed_chars);
 	return (printed_chars);
 }

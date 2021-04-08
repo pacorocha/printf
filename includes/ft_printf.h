@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/04 19:00:26 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/06 19:50:25 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void			get_integer(va_list args, t_specs *spec);
 void			get_hex(char c, va_list args, t_specs *spec);
 int				define_number(const char *str, int i, t_specs *spec);
 void			define_width(int s_len, t_specs *spec);
-int				print_fill(int output, t_specs *spec);
-void			blank_case(t_specs *spec);
+void			print_fill(int output, t_specs *spec);
 void			negative_case(int n, t_specs *spec);
 
 #endif
