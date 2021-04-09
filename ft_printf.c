@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/06 19:42:41 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/08 23:20:21 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,5 @@ int				ft_printf(const char *str, ...)
 	va_start(args, str);
 	printed_chars = ft_parse_str(str, args);
 	va_end(args);
-	// printf("printed chars: %d\n", printed_chars);
 	return (printed_chars);
 }

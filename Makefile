@@ -6,11 +6,11 @@
 #    By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:45:06 by jfrancis          #+#    #+#              #
-#    Updated: 2021/04/06 19:50:49 by jfrancis         ###   ########.fr        #
+#    Updated: 2021/04/08 21:32:29 by jfrancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 LIBFT = libft.a
 
 CC = gcc
