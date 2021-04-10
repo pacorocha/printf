@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/08 23:20:21 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/09 23:09:58 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,22 @@ static int		ft_parse_str(const char *str, va_list args)
 	int		i;
 
 	i = 0;
-	spec.width = 0;
 	spec.total_chars = 0;
 	params = "cspdiuxX";
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
+			spec.width = 0;
+			spec.precision = 0;
 			spec.lalign = 0;
 			i++;
+			if (str[i] == '%')
+			{
+				ft_putchar('%');
+				i++;
+				spec.total_chars++;
+			}
 			if (str[i] == '-')
 			{
 				spec.lalign = 1;
