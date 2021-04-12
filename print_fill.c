@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 19:40:38 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/09 20:13:31 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/11 18:00:18 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_fill(int output, t_specs *spec)
 {
-	char c;
-	int	i;
+	char	c;
+	int		i;
 
 	i = 0;
 	if (spec->filler == '0')

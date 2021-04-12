@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/06 19:50:25 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/11 22:01:24 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef	struct	s_ft_printf
 {
+	int			start_format;
 	int			width;
 	int			lalign;
 	int			precision;
@@ -36,10 +37,13 @@ void			check_params(char c, va_list args,
 void			get_char(va_list args, t_specs *spec);
 void			get_string(va_list args, t_specs *spec);
 void			get_integer(va_list args, t_specs *spec);
+void			get_pointer(va_list args, t_specs *spec);
 void			get_hex(char c, va_list args, t_specs *spec);
 int				define_number(const char *str, int i, t_specs *spec);
 void			define_width(int s_len, t_specs *spec);
 void			print_fill(int output, t_specs *spec);
 void			negative_case(int n, t_specs *spec);
+char			*hextoa(unsigned long int x, char c, t_specs *spec);
+unsigned long 	hex_size(unsigned long int n);
 
 #endif

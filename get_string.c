@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:06:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/09 22:29:45 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/11 21:31:45 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char	*chop_string(char *arg_str, int s_len, t_specs *spec)
 	else
 		return (arg_str);
 }
+
 void		get_string(va_list args, t_specs *spec)
 {
 	char	*arg_str;

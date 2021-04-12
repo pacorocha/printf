@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_params.c                                     :+:      :+:    :+:   */
+/*   hex_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 19:57:58 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/11 22:01:50 by jfrancis         ###   ########.fr       */
+/*   Created: 2021/04/11 21:48:03 by jfrancis          #+#    #+#             */
+/*   Updated: 2021/04/11 21:49:09 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-void	check_params(char c, va_list args, t_specs *spec)
+unsigned long	hex_size(unsigned long int n)
 {
-	if (c == 'c')
-		get_char(args, spec);
-	if (c == 's')
-		get_string(args, spec);
-	if (c == 'p')
-		get_pointer(args, spec);
-	if (c == 'x' || c == 'X')
-		get_hex(c, args, spec);
-	if (c == 'd' || c == 'i' || c == 'u')
-		get_integer(args, spec);
+	unsigned long int i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n)
+	{
+		n = n / 16;
+		i++;
+	}
+	return (i);
 }
