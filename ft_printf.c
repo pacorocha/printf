@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/11 18:01:53 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/13 21:48:00 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int		ft_parse_str(const char *str, va_list args)
 		if (str[i] == '%')
 		{
 			spec.width = 0;
-			spec.precision = 0;
+			spec.prec_size = 0;
 			spec.lalign = 0;
 			spec.start_format = 1;
 			i++;

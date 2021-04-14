@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:48:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/08 21:45:57 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/13 21:18:59 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		define_number(const char *str, int i, t_specs *spec)
 	char	*number_str;
 	int		number;
 
-	j = 0;
+	j = 1;
 	number_str = ft_calloc(j, sizeof(int));
 	while (ft_isdigit(str[i]))
 	{
-		number_str[j] = str[i];
+		number_str[j - 1] = str[i];
 		j++;
 		i++;
 	}

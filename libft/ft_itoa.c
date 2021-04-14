@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:50:38 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/03/19 19:13:26 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/13 13:11:14 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char		*ft_itoa(int n)
 		number = number / 10;
 		number_size--;
 	}
+	free(s);
 	return (s);
 }
