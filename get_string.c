@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:06:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/13 23:04:40 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:38:00 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ static char	*chop_string(char *arg_str, int s_len, t_specs *spec)
 		return (arg_str);
 }
 
+static void	null_case(t_specs *spec)
+{
+	if (spec->width == 0)
+		spec->precision = 0;
+}
+
 void		get_string(va_list args, t_specs *spec)
 {
 	char	*arg_str;
@@ -34,8 +40,7 @@ void		get_string(va_list args, t_specs *spec)
 	if (arg_str == NULL)
 	{
 		arg_str = "(null)";
-		if (spec->width == 0)
-			spec->precision = 0;
+		null_case(spec);
 	}
 	s_len = ft_strlen(arg_str);
 	if (spec->precision == 0 && spec->lalign == 0 && spec->width > s_len)
@@ -45,11 +50,8 @@ void		get_string(va_list args, t_specs *spec)
 	if (spec->precision == 1 && spec->lalign == 0)
 		print_fill(spec->width - s_len, spec);
 	ft_putstr(arg_str);
-	if (spec->lalign == 1)
-	{
-		if (spec->width > s_len)
-			print_fill(spec->width - s_len, spec);
-	}
+	if (spec->lalign == 1 && spec->width > s_len)
+		print_fill(spec->width - s_len, spec);
 	if (spec->prec_size <= s_len && spec->precision == 1)
 		free(arg_str);
 	spec->total_chars += s_len;

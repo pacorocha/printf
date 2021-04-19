@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/13 21:48:00 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/18 18:39:30 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,13 @@ static int		ft_parse_str(const char *str, va_list args)
 				else
 					spec.filler = ' ';
 				i = define_number(str, i, &spec);
+				if (str[i] == '-')
+				{
+					spec.lalign = 1;
+					i++;
+				}
 			}
-			if (str[i] == '*')
+			if (str[i] == '*' && spec.start_format == 1)
 			{
 				spec.width = get_variable(args, &spec);
 				i++;
