@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/11 22:01:24 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/27 21:36:24 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct	s_ft_printf
 	int			precision;
 	int			prec_size;
 	char		filler;
+	int			minus;
 	int			total_chars;
 }				t_specs;
 

@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/24 23:27:32 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/04/27 21:38:40 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int		ft_parse_str(const char *str, va_list args)
 			spec.prec_size = 0;
 			spec.lalign = 0;
 			spec.start_format = 1;
+			spec.minus = 0;
 			i++;
 			if (str[i] == '%' && spec.start_format == 1)
 			{
@@ -52,6 +53,7 @@ static int		ft_parse_str(const char *str, va_list args)
 			if (str[i] == '-')
 			{
 				spec.lalign = 1;
+				spec.minus = 1;
 				i++;
 			}
 			if (ft_isdigit(str[i]))
@@ -59,7 +61,10 @@ static int		ft_parse_str(const char *str, va_list args)
 				spec.precision = 0;
 				if (str[i] == '0')
 				{
-					spec.filler = '0';
+					if (spec.minus == 0)
+						spec.filler = '0';
+					else
+						spec.filler = ' ';
 					i++;
 				}
 				else
@@ -68,6 +73,12 @@ static int		ft_parse_str(const char *str, va_list args)
 				if (str[i] == '-')
 				{
 					spec.lalign = 1;
+					spec.minus = 1;
+					i++;
+				}
+				if (str[i] == '0')
+				{
+					spec.filler = ' ';
 					i++;
 				}
 			}
