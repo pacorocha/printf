@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_params.c                                     :+:      :+:    :+:   */
+/*   get_variable.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 19:57:58 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 17:33:04 by jfrancis         ###   ########.fr       */
+/*   Created: 2021/05/04 19:06:24 by jfrancis          #+#    #+#             */
+/*   Updated: 2021/05/04 19:08:34 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-void	check_params(char c, va_list args, t_specs *spec)
+int		get_star_value(va_list args, t_specs *spec)
 {
-	if (c == 'c')
-		get_char(args, spec);
-	if (c == 's')
-		get_string(args, spec);
-	if (c == 'p')
-		get_pointer(args, spec);
-	if (c == 'x' || c == 'X')
-		get_hex(c, args, spec);
-	if (c == 'd' || c == 'i')
-		get_integer(args, spec);
-	if (c == 'u')
-		get_u_int(args, spec);
+	int	n;
+
+	n = va_arg(args, int);
+	if (n < 0)
+	{
+		spec->lalign = 1;
+		n -= n * 2;
+	}
+	return (n);
 }

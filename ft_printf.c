@@ -6,114 +6,54 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/02 18:32:14 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:28:20 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int				get_variable(va_list args, t_specs *spec)
+static void		new_format(t_specs *spec)
 {
-	int		n;
+	spec->total_chars = 0;
+	spec->start_format = 0;
+	spec->params = "cspdiuxX";
+}
 
-	n = va_arg(args, int);
-	if (n < 0)
+static void		init_format(t_specs *spec)
+{
+	spec->width = 0;
+	spec->prec_size = 0;
+	spec->lalign = 0;
+	spec->start_format = 1;
+	spec->minus = 0;
+}
+
+static int		set_format(const char *str, int i, va_list args, t_specs *spec)
+{
+	init_format(spec);
+	i++;
+	if (!ft_strchr(spec->params, str[i]))
+		i = check_flags(str, i, args, spec);
+	if (ft_strchr(spec->params, str[i]))
 	{
-		spec->lalign = 1;
-		n -= n * 2;
+		check_params(str[i], args, spec);
+		i++;
 	}
-	return (n);
+	spec->start_format = 0;
+	return (i);
 }
 
 static int		ft_parse_str(const char *str, va_list args)
 {
-	char	*params;
 	t_specs	spec;
 	int		i;
 
 	i = 0;
-	spec.total_chars = 0;
-	params = "cspdiuxX";
+	new_format(&spec);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%')
-		{
-			spec.width = 0;
-			spec.prec_size = 0;
-			spec.lalign = 0;
-			spec.start_format = 1;
-			spec.minus = 0;
-			i++;
-			if (str[i] == '%' && spec.start_format == 1)
-			{
-				ft_putchar('%');
-				spec.start_format = 0;
-				i++;
-			}
-			if (str[i] == '-')
-			{
-				spec.lalign = 1;
-				spec.minus = 1;
-				i++;
-			}
-			if (ft_isdigit(str[i]))
-			{
-				spec.precision = 0;
-				if (str[i] == '0')
-				{
-					if (spec.minus == 0)
-						spec.filler = '0';
-					i++;
-				}
-				else
-					spec.filler = ' ';
-				i = define_number(str, i, &spec);
-			}
-			if (str[i] == '-')
-			{
-				spec.lalign = 1;
-				spec.minus = 1;
-				i++;
-			}
-			if (ft_isdigit(str[i]))
-			{
-				spec.precision = 0;
-				if (str[i] == '0')
-				{
-					if (spec.minus == 0)
-						spec.filler = '0';
-					i++;
-				}
-				else
-					spec.filler = ' ';
-				i = define_number(str, i, &spec);
-			}
-			if (str[i] == '*' && spec.start_format == 1)
-			{
-				spec.width = get_variable(args, &spec);
-				i++;
-			}
-			if (str[i] == '.')
-			{
-				i++;
-				spec.precision = 1;
-				if (ft_isdigit(str[i]))
-					i = define_number(str, i, &spec);
-				else
-					spec.prec_size = 0;
-			}
-			if (str[i] == '*')
-			{
-				if (spec.precision == 1)
-					spec.prec_size = get_variable(args, &spec);
-				i++;
-			}
-			if (ft_strchr(params, str[i]))
-			{
-				check_params(str[i], args, &spec);
-				i++;
-			}
-		}
+		if (str[i] == '%' && spec.start_format == 0)
+			i = set_format(str, i, args, &spec);
 		else
 		{
 			ft_putchar(str[i]);
@@ -126,8 +66,9 @@ static int		ft_parse_str(const char *str, va_list args)
 
 int				ft_printf(const char *str, ...)
 {
-	va_list args;
-	int printed_chars;
+	va_list	args;
+	int		printed_chars;
+
 	va_start(args, str);
 	printed_chars = ft_parse_str(str, args);
 	va_end(args);

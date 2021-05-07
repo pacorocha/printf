@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_params.c                                     :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 19:57:58 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 17:33:04 by jfrancis         ###   ########.fr       */
+/*   Created: 2021/05/06 18:49:41 by jfrancis          #+#    #+#             */
+/*   Updated: 2021/05/06 19:41:47 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "libft.h"
 
-void	check_params(char c, va_list args, t_specs *spec)
+char		*ft_utoa(unsigned int n)
 {
-	if (c == 'c')
-		get_char(args, spec);
-	if (c == 's')
-		get_string(args, spec);
-	if (c == 'p')
-		get_pointer(args, spec);
-	if (c == 'x' || c == 'X')
-		get_hex(c, args, spec);
-	if (c == 'd' || c == 'i')
-		get_integer(args, spec);
-	if (c == 'u')
-		get_u_int(args, spec);
+	char			*s;
+	size_t			number_size;
+
+	number_size = num_size(n);
+	if (n > 0)
+		number_size--;
+	if (!(s = (char*)malloc(number_size + 1 * sizeof(char))))
+		return (NULL);
+	if (n == 0)
+		s[0] = '0';
+	s[number_size + 1] = '\0';
+	while (n > 0)
+	{
+		s[number_size - 1] = n % 10 + '0';
+		n = n / 10;
+		number_size--;
+	}
+	return (s);
 }
