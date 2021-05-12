@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:50:38 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 13:41:18 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 14:05:57 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char		*ft_itoa(long int n)
 {
 	char			*s;
-	long int		number;
+	unsigned int	number;
 	size_t			number_size;
 	int				i;
 
