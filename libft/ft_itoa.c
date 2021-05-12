@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 16:50:38 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 13:32:39 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 13:41:18 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long int n)
 {
 	char			*s;
 	long int		number;
