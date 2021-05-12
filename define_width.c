@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:27:31 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/28 22:09:44 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:32:30 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	define_width(int s_len, t_specs *spec)
 
 	if (spec->width > s_len && spec->prec_size < s_len)
 		output = spec->prec_size - s_len;
-	if (spec->width > s_len && spec->prec_size > s_len)
+	if (spec->width > s_len && spec->prec_size >= s_len)
 		output = spec->width - s_len;
 	if (spec->width <= s_len && spec->prec_size < s_len)
 		output = spec->width - spec->prec_size;

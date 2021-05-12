@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 19:08:59 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/03/19 19:09:15 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/09 18:54:30 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	num_size(int n)
 {
-	int	size;
+	unsigned int	size;
 
 	size = 1;
 	while (n /= 10)

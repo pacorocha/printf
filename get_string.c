@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:06:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 21:28:10 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/10 16:53:39 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static char	*chop_string(char *arg_str, int s_len, t_specs *spec)
 static void	null_case(t_specs *spec)
 {
 	if (spec->width == 0 && spec->lalign == 1)
+		spec->prec_size = 6;
+	if (spec->prec_size < 6 && spec->precision == 0)
 		spec->prec_size = 6;
 }
 

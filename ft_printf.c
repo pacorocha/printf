@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 22:28:20 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 12:22:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,45 @@ static void		new_format(t_specs *spec)
 {
 	spec->total_chars = 0;
 	spec->start_format = 0;
-	spec->params = "cspdiuxX";
+	spec->flags = "-*.";
+	spec->params = "cspdiuxX%";
 }
 
-static void		init_format(t_specs *spec)
+static void 	init_format(t_specs *spec)
+{
+	spec->start_format = 1;
+	spec->width = 0;
+	spec->prec_size = 0;
+	spec->lalign = 0;
+	spec->minus = 0;
+	spec->precision = 0;
+}
+
+static void		reset_format(t_specs *spec)
 {
 	spec->width = 0;
 	spec->prec_size = 0;
 	spec->lalign = 0;
-	spec->start_format = 1;
 	spec->minus = 0;
+	spec->precision = 0;
 }
 
 static int		set_format(const char *str, int i, va_list args, t_specs *spec)
 {
 	init_format(spec);
 	i++;
-	if (!ft_strchr(spec->params, str[i]))
+	if (ft_strchr(spec->flags, str[i]) || ft_isdigit(str[i]))
 		i = check_flags(str, i, args, spec);
 	if (ft_strchr(spec->params, str[i]))
 	{
 		check_params(str[i], args, spec);
-		i++;
+		reset_format(spec);
 	}
-	spec->start_format = 0;
+	if (spec->width != 0)
+	{
+		print_fill(0, spec);
+	}
+	i++;
 	return (i);
 }
 

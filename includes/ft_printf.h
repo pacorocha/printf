@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 19:54:59 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:57:22 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef	struct	s_ft_printf
 	char		filler;
 	int			minus;
 	char		*params;
+	char		*flags;
 	int			total_chars;
 }				t_specs;
 
@@ -36,10 +37,10 @@ void			ft_putchar(char c);
 int				ft_putstr(const char *str);
 int				ft_printf(const char *str, ...);
 int				check_flags(const char *str, int i, va_list args, t_specs* spec);
-int				get_star_value(va_list args, t_specs *spec);
+int				get_wildcard_value(va_list args, t_specs *spec);
 void			check_params(char c, va_list args,
 				t_specs *spec);
-void			get_char(va_list args, t_specs *spec);
+void			get_char(char c, va_list args, t_specs *spec);
 void			get_string(va_list args, t_specs *spec);
 void			get_integer(va_list args, t_specs *spec);
 void			get_u_int(va_list args, t_specs *spec);

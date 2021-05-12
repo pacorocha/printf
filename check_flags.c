@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:03:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 20:27:46 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 13:11:15 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 static int		format_minus(int i, t_specs *spec)
 {
-	spec->lalign = 1;
-	spec->minus = 1;
-	i++;
+	if (spec->start_format == 1)
+	{
+		spec->lalign = 1;
+		spec->minus = 1;
+		i++;
+	}
 	return (i);
 }
 static int		parse_flag(const char *str, int i, t_specs *spec)
 {
 	spec->precision = 0;
-	if (str[i] == '0')
+	if (str[i] == '0' && spec->start_format == 1)
 	{
 		if (spec->minus == 0)
 			spec->filler = '0';
@@ -34,12 +37,12 @@ static int		parse_flag(const char *str, int i, t_specs *spec)
 	return (i);
 }
 
-static int		parse_star(int i, va_list args, t_specs *spec)
+static int		parse_wildcard(int i, va_list args, t_specs *spec)
 {
-	if (spec->start_format == 1)
-		spec->width = get_star_value(args, spec);
+	if (spec->precision == 0)
+		spec->width = get_wildcard_value(args, spec);
 	if (spec->precision == 1)
-		spec->prec_size = get_star_value(args, spec);
+		spec->prec_size = get_wildcard_value(args, spec);
 	i++;
 	return (i);
 }
@@ -66,16 +69,10 @@ int				check_flags(const char *str, int i, va_list args, t_specs *spec)
 	if (ft_isdigit(str[i]))
 		i = parse_flag(str, i, spec);
 	if (str[i] == '*')
-		i = parse_star(i, args, spec);
+		i = parse_wildcard(i, args, spec);
 	if (str[i] == '.')
 		i = parse_dot(str, i, spec);
 	if (str[i] == '*')
-		i = parse_star(i, args, spec);
-	if (str[i] == '%' && spec->start_format == 1)
-	{
-		ft_putchar('%');
-		i++;
-		spec->start_format = 0;
-	}
+		i = parse_wildcard(i, args, spec);
 	return (i);
 }

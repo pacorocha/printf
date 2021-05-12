@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 19:57:58 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/06 17:33:04 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/10 21:54:29 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	check_params(char c, va_list args, t_specs *spec)
 {
-	if (c == 'c')
-		get_char(args, spec);
+	if (c == 'c' || c == '%')
+		get_char(c, args, spec);
 	if (c == 's')
 		get_string(args, spec);
 	if (c == 'p')
@@ -26,4 +26,5 @@ void	check_params(char c, va_list args, t_specs *spec)
 		get_integer(args, spec);
 	if (c == 'u')
 		get_u_int(args, spec);
+	spec->start_format = 0;
 }
