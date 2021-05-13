@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:30:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 13:24:42 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 21:53:39 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		get_u_int(va_list args, t_specs *spec)
 {
 	unsigned int	n;
 	char			*number;
-	int				n_len;
+	size_t			n_len;
 
 	n = va_arg(args, unsigned int);
 	number = ft_utoa(n);

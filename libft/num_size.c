@@ -6,13 +6,15 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 19:08:59 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/09 18:54:30 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/12 20:34:09 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	num_size(int n)
 {
-	unsigned int	size;
+	int	size;
 
 	size = 1;
 	while (n /= 10)
