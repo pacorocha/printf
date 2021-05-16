@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 17:56:45 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:01:23 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ typedef	struct	s_ft_printf
 void			ft_putnbr(char *number, int n_len, t_specs *spec);
 void			ft_putchar(char c);
 int				ft_putstr(const char *str);
+int				set_format(const char *str, int i, va_list args, t_specs *spec);
 int				ft_printf(const char *str, ...);
-int				check_flags(const char *str, int i, va_list args, t_specs* spec);
+int				set_flags(const char *str, int i, va_list args, t_specs *spec);
 int				get_wildcard_value(va_list args, t_specs *spec);
 void			check_params(char c, va_list args,
 				t_specs *spec);
@@ -53,6 +54,6 @@ void			left_align_fill(int n, int n_len, t_specs *spec);
 void			right_align_fill(int n, int n_len, t_specs *spec);
 void			negative_case(int n, t_specs *spec);
 char			*hextoa(unsigned long int x, char c, t_specs *spec);
-unsigned long 	hex_size(unsigned long int n);
+unsigned long	hex_size(unsigned long int n);
 
 #endif

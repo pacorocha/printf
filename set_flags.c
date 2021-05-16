@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:03:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 13:11:15 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 20:58:38 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int		format_minus(int i, t_specs *spec)
 	}
 	return (i);
 }
+
 static int		parse_flag(const char *str, int i, t_specs *spec)
 {
 	spec->precision = 0;
@@ -58,7 +59,7 @@ static int		parse_dot(const char *str, int i, t_specs *spec)
 	return (i);
 }
 
-int				check_flags(const char *str, int i, va_list args, t_specs *spec)
+int				set_flags(const char *str, int i, va_list args, t_specs *spec)
 {
 	if (str[i] == '-')
 		i = format_minus(i, spec);

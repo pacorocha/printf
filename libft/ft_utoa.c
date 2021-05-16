@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 18:49:41 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 21:53:25 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:23:24 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char		*ft_utoa(unsigned int n)
 {
-	char			*s;
-	unsigned int	number;
-	unsigned		number_size;
+	unsigned int	count;
+	unsigned int	num;
+	char			*temp;
 
-	number = n;
-	number_size = num_size(number);
-	if (!(s = (char*)malloc(number_size + 1 * sizeof(char))))
+	count = 1;
+	num = n;
+	while (n >= 10 && count++)
+		n /= 10;
+	temp = malloc((count + 1) * sizeof(char));
+	if (!temp)
 		return (NULL);
-	if (n == 0)
-		s[0] = '0';
-	s[number_size] = '\0';
-	while (number > 0)
+	*(temp + count) = '\0';
+	while (count--)
 	{
-		s[number_size - 1] = number % 10 + '0';
-		number = number / 10;
-		number_size--;
+		*(temp + count) = num % 10 + '0';
+		num /= 10;
 	}
-	free(s);
-	return (s);
+	free(temp);
+	return (temp);
 }
