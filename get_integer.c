@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:19:51 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/17 11:28:38 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:51:48 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	get_integer(va_list args, t_specs *spec)
 		ft_putnbr(number, n_len, spec);
 		free(number);
 	}
-	if (n > 2147483647)
-		n_len++;
 	right_align_fill(n, n_len, spec);
 	if (n > 0 || (n == 0 && (spec->precision == 0 || spec->prec_size > 0)))
 		ft_putnbr(number, n_len, spec);

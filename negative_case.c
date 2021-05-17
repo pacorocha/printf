@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 21:02:10 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 21:32:27 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:42:40 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	fill_before_minus(int n_len, t_specs *spec)
 			output = spec->width - spec->prec_size - 1;
 		else
 			output = spec->width - n_len;
+		printf("n_len: %i", n_len);
 		print_fill(output, spec);
 	}
 }
