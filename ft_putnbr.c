@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 17:56:56 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 13:53:18 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putnbr(char *number, int n_len, t_specs *spec)
 {
 	ft_putstr(number);
-	spec->total_chars += n_len;
+	// spec->total_chars += n_len;
 }
