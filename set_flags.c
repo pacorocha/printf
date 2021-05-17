@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:03:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/17 13:43:56 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:10:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static int	parse_flag(const char *str, int i, t_specs *spec)
 static int	parse_wildcard(int i, va_list args, t_specs *spec)
 {
 	if (spec->is_width == 1)
+	{
 		spec->width = get_wildcard_value(args, spec);
+		spec->filler = ' ';
+	}
 	if (spec->precision == 1)
 		spec->prec_size = get_wildcard_value(args, spec);
 	i++;
