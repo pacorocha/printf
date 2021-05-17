@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 20:34:15 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/16 11:50:42 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 13:37:25 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	init_format(t_specs *spec)
 {
 	spec->start_format = 1;
+	spec->is_width = 0;
 	spec->width = 0;
 	spec->prec_size = 0;
 	spec->lalign = 0;

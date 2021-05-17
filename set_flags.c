@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:03:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/16 11:59:04 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 13:37:53 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	parse_flag(const char *str, int i, t_specs *spec)
 
 static int	parse_wildcard(int i, va_list args, t_specs *spec)
 {
-	if (spec->precision == 0)
+	if (spec->is_width == 1)
 		spec->width = get_wildcard_value(args, spec);
 	if (spec->precision == 1)
 		spec->prec_size = get_wildcard_value(args, spec);
@@ -70,7 +70,10 @@ int	set_flags(const char *str, int i, va_list args, t_specs *spec)
 	if (ft_isdigit(str[i]))
 		i = parse_flag(str, i, spec);
 	if (str[i] == '*')
+	{
+		spec->is_width = 1;
 		i = parse_wildcard(i, args, spec);
+	}
 	if (str[i] == '.')
 		i = parse_dot(str, i, spec);
 	if (str[i] == '*')
