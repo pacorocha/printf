@@ -40,5 +40,10 @@ int main ()
 	ft = ft_printf("%*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s, %*.*s", a, b, n, a, b, o, a, b, p, a, b, q, a, b, r, a, b, s, a, b, t, a, b, u);
 	printf("\n");
 	printf("pf: %i\nft: %i\n", pf, ft);
+	pf = printf("%10c", '0');
+	printf("\n");
+	ft = ft_printf("%10c", '0');
+	printf("\n");
+	printf("pf: %i\nft: %i\n", pf, ft);
 	return (0);
 }
