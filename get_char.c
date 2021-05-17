@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:07:35 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/17 14:24:13 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 14:37:46 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	get_char(char c, va_list args, t_specs *spec)
 		k = va_arg(args, int);
 	output = spec->width;
 	if (c == '0')
-		output = spec->width -1;
+		output = spec->width - 1;
 	if (spec->lalign == 0)
 		print_fill(output, spec);
 	ft_putchar(k);
