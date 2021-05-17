@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 17:15:14 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/28 22:02:33 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:30:59 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void		prefix_hex(unsigned long x, long n_len,
+static void	prefix_hex(unsigned long x, long n_len,
 						t_specs *spec)
 {
 	int	i;
@@ -42,7 +42,7 @@ static void		prefix_hex(unsigned long x, long n_len,
 	spec->total_chars = spec->total_chars + i;
 }
 
-void			get_pointer(va_list args, t_specs *spec)
+void	get_pointer(va_list args, t_specs *spec)
 {
 	unsigned long int	x;
 	int					n_len;

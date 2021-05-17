@@ -6,7 +6,7 @@
 #    By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:45:06 by jfrancis          #+#    #+#              #
-#    Updated: 2021/05/15 20:59:06 by jfrancis         ###   ########.fr        #
+#    Updated: 2021/05/16 11:20:26 by jfrancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,5 @@ fclean:		clean
 			make -C $(LIBFT_PATH) fclean
 
 re:			fclean all
-
-test:		$(CC) -I ./includes main.c libftprintf.a
-			./a.out
 
 .PHONY::	all clean fclean re test

@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 18:49:41 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 15:23:24 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 22:25:16 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
 	unsigned int	count;
 	unsigned int	num;

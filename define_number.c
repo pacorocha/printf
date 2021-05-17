@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:48:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/13 21:18:59 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:29:36 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int		define_number(const char *str, int i, t_specs *spec)
+int	define_number(const char *str, int i, t_specs *spec)
 {
 	int		j;
 	char	*number_str;

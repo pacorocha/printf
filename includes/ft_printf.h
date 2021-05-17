@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 21:01:23 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:36:26 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef	struct	s_ft_printf
+typedef struct s_ft_printf
 {
 	int			start_format;
 	int			width;
@@ -40,7 +40,7 @@ int				ft_printf(const char *str, ...);
 int				set_flags(const char *str, int i, va_list args, t_specs *spec);
 int				get_wildcard_value(va_list args, t_specs *spec);
 void			check_params(char c, va_list args,
-				t_specs *spec);
+					t_specs *spec);
 void			get_char(char c, va_list args, t_specs *spec);
 void			get_string(va_list args, t_specs *spec);
 void			get_integer(va_list args, t_specs *spec);

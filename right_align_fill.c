@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:10:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 22:46:55 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:21:55 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	right_align_fill(int n, int n_len, t_specs *spec)
 {
-	int output;
+	int	output;
 
 	if (n >= 0 && spec->width >= 0 && spec->lalign == 0)
 	{

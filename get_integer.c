@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 19:19:51 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:24:46 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:56:43 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-void		get_integer(va_list args, t_specs *spec)
+void	get_integer(va_list args, t_specs *spec)
 {
 	int		n;
 	char	*number;

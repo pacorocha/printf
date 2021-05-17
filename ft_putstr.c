@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 12:50:39 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/01 19:22:59 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:32:42 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-int		ft_putstr(const char *str)
+int	ft_putstr(const char *str)
 {
 	int	i;
 

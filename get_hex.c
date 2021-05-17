@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 17:15:14 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:48:10 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:34:11 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void		hex_right_fill(int n_len, t_specs *spec)
+static void	hex_right_fill(int n_len, t_specs *spec)
 {
 	int		output;
 
@@ -36,7 +36,7 @@ static void		hex_right_fill(int n_len, t_specs *spec)
 	}
 }
 
-void			get_hex(char c, va_list args, t_specs *spec)
+void	get_hex(char c, va_list args, t_specs *spec)
 {
 	unsigned long int	x;
 	int					n_len;

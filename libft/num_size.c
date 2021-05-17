@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 19:08:59 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/12 20:34:09 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 22:09:27 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int	num_size(int n)
 {
 	int	size;
 
-	size = 1;
-	while (n /= 10)
+	size = 0;
+	while (n != 0)
+	{
+		n /= 10;
 		size++;
+	}
 	return (size);
 }

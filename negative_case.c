@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 21:02:10 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:15:06 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:32:27 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	fill_before_minus(int n_len, t_specs *spec)
 {
-	int output;
+	int	output;
 
 	output = 0;
 	if (spec->width >= 0 && spec->lalign == 0 && spec->filler == ' ')
@@ -36,7 +36,7 @@ static void	fill_before_minus(int n_len, t_specs *spec)
 	}
 }
 
-void		negative_case(int n, t_specs *spec)
+void	negative_case(int n, t_specs *spec)
 {
 	int	n_len;
 	int	output;

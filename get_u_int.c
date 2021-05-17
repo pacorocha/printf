@@ -6,15 +6,15 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:30:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:55:50 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:23:31 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void		u_right_fill(unsigned int n, int n_len, t_specs *spec)
+static void	u_right_fill(unsigned int n, int n_len, t_specs *spec)
 {
-	int output;
+	int	output;
 
 	if (spec->width >= 0 && spec->lalign == 0)
 	{
@@ -38,7 +38,7 @@ static void		u_right_fill(unsigned int n, int n_len, t_specs *spec)
 	}
 }
 
-void			get_u_int(va_list args, t_specs *spec)
+void	get_u_int(va_list args, t_specs *spec)
 {
 	unsigned int	n;
 	char			*number;

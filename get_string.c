@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 18:06:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/10 16:53:39 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:29:12 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	null_case(t_specs *spec)
 		spec->prec_size = 6;
 }
 
-void		get_string(va_list args, t_specs *spec)
+void	get_string(va_list args, t_specs *spec)
 {
 	char	*arg_str;
 	int		s_len;

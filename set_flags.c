@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_flags.c                                      :+:      :+:    :+:   */
+/*   set_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:03:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:58:38 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/16 11:59:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static int		format_minus(int i, t_specs *spec)
+static int	format_minus(int i, t_specs *spec)
 {
 	if (spec->start_format == 1)
 	{
@@ -23,7 +23,7 @@ static int		format_minus(int i, t_specs *spec)
 	return (i);
 }
 
-static int		parse_flag(const char *str, int i, t_specs *spec)
+static int	parse_flag(const char *str, int i, t_specs *spec)
 {
 	spec->precision = 0;
 	if (str[i] == '0' && spec->start_format == 1)
@@ -38,7 +38,7 @@ static int		parse_flag(const char *str, int i, t_specs *spec)
 	return (i);
 }
 
-static int		parse_wildcard(int i, va_list args, t_specs *spec)
+static int	parse_wildcard(int i, va_list args, t_specs *spec)
 {
 	if (spec->precision == 0)
 		spec->width = get_wildcard_value(args, spec);
@@ -48,7 +48,7 @@ static int		parse_wildcard(int i, va_list args, t_specs *spec)
 	return (i);
 }
 
-static int		parse_dot(const char *str, int i, t_specs *spec)
+static int	parse_dot(const char *str, int i, t_specs *spec)
 {
 	i++;
 	spec->precision = 1;
@@ -59,7 +59,7 @@ static int		parse_dot(const char *str, int i, t_specs *spec)
 	return (i);
 }
 
-int				set_flags(const char *str, int i, va_list args, t_specs *spec)
+int	set_flags(const char *str, int i, va_list args, t_specs *spec)
 {
 	if (str[i] == '-')
 		i = format_minus(i, spec);
@@ -75,5 +75,7 @@ int				set_flags(const char *str, int i, va_list args, t_specs *spec)
 		i = parse_dot(str, i, spec);
 	if (str[i] == '*')
 		i = parse_wildcard(i, args, spec);
+	if (str[i] == '\0')
+		i--;
 	return (i);
 }

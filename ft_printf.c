@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:42:48 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 20:41:55 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:35:09 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void		new_format(t_specs *spec)
+static void	new_format(t_specs *spec)
 {
 	spec->total_chars = 0;
 	spec->start_format = 0;
@@ -20,7 +20,7 @@ static void		new_format(t_specs *spec)
 	spec->params = "cspdiuxX%";
 }
 
-static int		ft_parse_str(const char *str, va_list args)
+static int	ft_parse_str(const char *str, va_list args)
 {
 	t_specs	spec;
 	int		i;
@@ -41,7 +41,7 @@ static int		ft_parse_str(const char *str, va_list args)
 	return (spec.total_chars);
 }
 
-int				ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		printed_chars;
