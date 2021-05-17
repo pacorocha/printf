@@ -2,14 +2,17 @@
 
 int main ()
 {
-	static char	a01;
-	printf("printf: |%*.3d|", 6, 5);
+	int pf;
+	int ft;
+	pf = printf("printf: |%*.3d|", 6, 5);
 	printf("\n");
-	ft_printf("ft_printf: |%*.3d|", 6, 5);
+	ft = ft_printf("ft_printf: |%*.3d|", 6, 5);
 	printf("\n");
-	printf("printf: |%*.d|", 5, -4);
+	printf("pf: %i\nft: %i\n", pf ft);
+	pf = printf("printf: |%*.d|", 5, -4);
 	printf("\n");
-	ft_printf("ft_printf: |%*.d|", 5, -4);
+	ft = ft_printf("ft_printf: |%*.d|", 5, -4);
 	printf("\n");
+	printf("pf: %i\nft: %i\n", pf ft);
 	return (0);
 }
