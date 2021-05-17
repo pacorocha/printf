@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:07:35 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/17 17:04:10 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:05:10 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	get_char(char c, va_list args, t_specs *spec)
 		k = c;
 	else
 		k = va_arg(args, int);
-	if (c == '0' && spec->precision == 0)
+	if (c == '0')
 		output = spec->width - 1;
 	else
 		output = spec->width;
