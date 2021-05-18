@@ -25,6 +25,10 @@ int main ()
 	char	*s = "-2147483648";
 	char	*t = "0x12345678";
 	char	*u = "-0";
+	pf = printf("Simple input test");
+	printf("\n");
+	ft = ft_printf"Simple input test");
+	printf("\n");
 	pf = printf("printf: |%*.3d|", 6, 5);
 	printf("\n");
 	ft = ft_printf("ft_printf: |%*.3d|", 6, 5);
