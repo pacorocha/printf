@@ -65,10 +65,10 @@ int main ()
 	print_white();
 	char *str = "String made of characters.";
 	char *str2 = "Another string also made of characters.";
-	printf("printf: This is a string: %s\n\n", str);
-	ft_printf("ft_printf: This is a string: %s\n\n", str);
-	printf("printf: These are two strings:\n%s is the first.\n%s is the second.\n\n", str, str2);
-	ft_printf("ft_printf: These are two strings:\n%s is the first.\n%s is the second.\n\n", str, str2);
+	printf("pf: This is a string: %s\n\n", str);
+	ft_printf("ft: This is a string: %s\n\n", str);
+	printf("pf: These are two strings:\n%s is the first.\n%s is the second.\n\n", str, str2);
+	ft_printf("ft: These are two strings:\n%s is the first.\n%s is the second.\n\n", str, str2);
 
 	print_green();
 	printf("Test 2 strings:\n");
