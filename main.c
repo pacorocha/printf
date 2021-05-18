@@ -141,5 +141,6 @@ int main ()
 	print_white();
 	printf("printf: These are all the parameters in one print: %c, %s, %p, %d, %i, %u, %x, %X and %% in the middle of a string.\n", c, str, pa, d, i, ui, h, h);
 	ft_printf("ft_printf: These are all the parameters in one print: %c, %s, %p, %d, %i, %u, %x, %X and %% in the middle of a string.\n", c, str, pa, d, i, ui, h, h);
+
 	return (0);
 }
