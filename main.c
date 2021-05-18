@@ -1,5 +1,23 @@
 #include <ft_printf.h>
 
+void print_blue()
+{
+	printf("\033[0;34m");
+}
+
+void print_green()
+{
+	printf("\033[0;32m");
+}
+void print_yellow()
+{
+	printf("\033[0;33m");
+}
+void print_white()
+{
+	printf("\033[0;37m");
+}
+
 int main ()
 {
 	int pf;
