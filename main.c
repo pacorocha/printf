@@ -26,6 +26,8 @@ int main ()
 	printf("\n");
 	ft = ft_printf("Simple input test");
 	printf("\n");
+	printf("pf: %i\nft: %i\n", pf, ft);
+	printf("pf: %i\nft: %i\n", pf, ft);
 	pf = printf("printf: |%*.3d|", 6, 5);
 	printf("\n");
 	ft = ft_printf("ft_printf: |%*.3d|", 6, 5);
