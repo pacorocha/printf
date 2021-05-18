@@ -27,7 +27,7 @@ int main ()
 	char	*u = "-0";
 	pf = printf("Simple input test");
 	printf("\n");
-	ft = ft_printf"Simple input test");
+	ft = ft_printf("Simple input test");
 	printf("\n");
 	pf = printf("printf: |%*.3d|", 6, 5);
 	printf("\n");
