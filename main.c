@@ -142,17 +142,17 @@ int main ()
 	printf("printf: These are all the parameters in one print: %c, %s, %p, %d, %i, %u, %x, %X and %% in the middle of a string.\n", c, str, pa, d, i, ui, h, h);
 	ft_printf("ft_printf: These are all the parameters in one print: %c, %s, %p, %d, %i, %u, %x, %X and %% in the middle of a string.\n", c, str, pa, d, i, ui, h, h);
 
-/*
-	** 	char:
-	*/
+	print_yellow();
+	printf("################################################## char ##################################################\n");
+	print_white();
 	 ft_printf("ft_printf: |%c|\n", 'x');
 	 printf("___printf: |%c|\n", 'x');
 	 ft_printf("ft_printf: |%3c|\n", 'x');
 	 printf("___printf: |%3c|\n", 'x');
 
-	/*
-	** 	string:
-	*/
+	print_yellow();
+	printf("################################################## string ##################################################\n");
+	print_white();
 
 	 ft_printf("ft_printf: |%2.s|\n", "42");
 	 printf("___printf: |%2.s|\n", "42");
@@ -171,9 +171,9 @@ int main ()
 	 ft_printf("ft_printf:  --- Return : %d\n",  ft_printf("|%-2s|\n|%.s|\n|%-4s|\n|%-2.4s|\n|%-8.12s|\n|%3s|\n|%8s|\n|%---2s|\n|%.*s|\n|%.0s|\n|%.1s|\n|%.2s|\n|%.4s|\n|%.8s|\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
 	 printf("___printf:  --- Return : %d\n", printf("|%-2s|\n|%.s|\n|%-4s|\n|%-2.4s|\n|%-8.12s|\n|%3s|\n|%8s|\n|%---2s|\n|%.*s|\n|%.0s|\n|%.1s|\n|%.2s|\n|%.4s|\n|%.8s|\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
 
-	/*
-	** 	integers:
-	*/
+	print_yellow();
+	printf("################################################## integers ##################################################\n");
+	print_white();
 
 	 ft_printf("ft_printf: |%3.0d|\n", 10);
 	 printf("___printf: |%3.0d|\n", 10);
@@ -196,9 +196,9 @@ int main ()
 	 ft_printf("ft_printf: |%.0u|\n", 10);
 	 printf("___printf: |%.0u|\n", 10);
 
-	/*
-	** 	hex:
-	*/
+	print_yellow();
+	printf("################################################## hex ##################################################\n");
+	print_white();
 
 	 ft_printf("ft_printf: |%.0x|\n", 100);
 	 printf("___printf: |%.0x|\n", 100);
@@ -207,9 +207,9 @@ int main ()
 	 ft_printf("ft_printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
 	 printf("___printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
 
-	/*
-	** 	pointer:
-	*/
+	print_yellow();
+	printf("################################################## pointer ##################################################\n");
+	print_white();
 
 	 ft_printf("ft_printf: |%1.p|\n", NULL);
 	 printf("___printf: |0x|\n");
@@ -220,9 +220,9 @@ int main ()
 	 printf("___printf: |0000000000000000000000000%%|\n");
 
 
-	/*
-	** 	undefined behavior:
-	*/
+	print_yellow();
+	printf("################################################## undefined behavior ##################################################\n");
+	print_white();
 
 	 ft_printf("ft_printf: |%09s|\n", "lala la");
 	printf("__printf:|%09s|\n", "lala la");
