@@ -225,16 +225,14 @@ int main ()
 	printf("################################################## undefined behavior ##################################################\n");
 	print_white();
 
-	 ft_printf("ft_printf: |%09s|\n", "lala la");
-	printf("__printf:|%09s|\n", "lala la");
-	 ft_printf("ft_printf: |%-09s|\n", "lala la");
-	printf("__printf:|%-09s|\n", "lala la");
-	 ft_printf("ft_printf|:%2.9p|\n", 1234);
-	printf("__printf:|%2.9p|\n", 1234);
-	 ft_printf("ft_printf:|%*-c|\n", 3, 'x');
-	printf("__printf:|%*-c|\n", 3, 'x');
-	 ft_printf("ft_printf: |%-*c|\n", 3, 'x');
-	printf("__printf:|%-*c|\n", 3, 'x');
+	ft_printf("ft_printf: |%09s|\n", "lala la");
+	printf("___printf: |%09s|\n", "lala la");
+	ft_printf("ft_printf: |%-09s|\n", "lala la");
+	printf("___printf: |%-09s|\n", "lala la");
+	ft_printf("ft_printf: |%2.9p|\n", 1234);
+	printf("___printf: |%2.9p|\n", 1234);
+	ft_printf("ft_printf: |%*-c|\n", 3, 'x');
+	printf("___printf: |%*-c|\n", 3, 'x');
 
 	return (0);
 }
