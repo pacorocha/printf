@@ -37,7 +37,6 @@ int main ()
 	ft = ft_printf("ft_printf: |%*.d|", 5, -4);
 	printf("\n");
 	printf("pf: %i\nft: %i\n", pf, ft);
-	printf("pf: %i\nft: %i\n", pf, ft);
 	pf = printf("%10c", '0');
 	printf("\n");
 	ft = ft_printf("%10c", '0');
@@ -201,13 +200,16 @@ int main ()
 	printf("################################################## hex ##################################################\n");
 	print_white();
 
-	 ft_printf("ft_printf: |%.0x|\n", 100);
-	 printf("___printf: |%.0x|\n", 100);
-	 ft_printf("ft_printf: |%.x|\n", 0);
-	 printf("___printf: |%.x|\n", 0);
-	 ft_printf("ft_printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
-	 printf("___printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
-
+	ft_printf("ft_printf: |%.0x|\n", 100);
+	printf("___printf: |%.0x|\n", 100);
+	ft_printf("ft_printf: |%.x|\n", 0);
+	printf("___printf: |%.x|\n", 0);
+	ft = ft_printf("ft_printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
+	pf = printf("___printf: |%*.*x| |%*.*X|\n", 1, 50, 5000, 1, 0, 10);
+	printf("pf: %i\nft: %i\n", pf, ft);
+	ft = ft_printf("ft_printf: *%-*.*x* *%*.*x* \n", 6, 2, 102, 10, 21, -101);
+	pf = printf("___printf: *%-*.*x* *%*.*x* \n", 6, 2, 102, 10, 21, -101);
+	printf("pf: %i\nft: %i\n", pf, ft);
 	print_yellow();
 	printf("################################################## pointer ##################################################\n");
 	print_white();
