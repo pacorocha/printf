@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:50:27 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/17 13:35:02 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:50:15 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_ft_printf
 {
 	int			start_format;
-	int			is_width;
 	int			width;
 	int			lalign;
 	int			precision;

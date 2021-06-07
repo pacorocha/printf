@@ -6,11 +6,11 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 19:09:51 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/04/06 13:11:58 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/06 17:47:57 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	be_positive(int n)
+long int	be_positive(long int n)
 {
 	if (n < 0)
 		return (-n);

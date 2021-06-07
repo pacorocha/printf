@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:30:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 21:23:31 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/06 22:58:25 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_printf.h>
 
-static void	u_right_fill(unsigned int n, int n_len, t_specs *spec)
+static void	u_right_align_fill(unsigned int n, int n_len, t_specs *spec)
 {
 	int	output;
 
@@ -38,6 +38,23 @@ static void	u_right_fill(unsigned int n, int n_len, t_specs *spec)
 	}
 }
 
+void	u_left_align_fill(unsigned int n, int n_len, t_specs *spec)
+{
+	int	output;
+
+	if (spec->width && spec->lalign == 1)
+	{
+		spec->filler = ' ';
+		if (spec->prec_size < n_len)
+			output = spec->width - n_len;
+		else
+			output = spec->width - spec->prec_size;
+		if (n == 0 && spec->precision == 1 && spec->prec_size == 0)
+			output++;
+		print_fill(output, spec);
+	}
+}
+
 void	get_u_int(va_list args, t_specs *spec)
 {
 	unsigned int	n;
@@ -52,10 +69,8 @@ void	get_u_int(va_list args, t_specs *spec)
 		number = "0";
 		n_len = 1;
 	}
-	u_right_fill(n, n_len, spec);
+	u_right_align_fill(n, n_len, spec);
 	if (n > 0 || (n == 0 && (spec->precision == 0 || spec->prec_size > 0)))
 		ft_putnbr(number, n_len, spec);
-	if (n > 2147483648)
-		n_len--;
-	left_align_fill(n, n_len, spec);
+	u_left_align_fill(n, n_len, spec);
 }

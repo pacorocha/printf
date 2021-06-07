@@ -6,7 +6,7 @@
 #    By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:45:06 by jfrancis          #+#    #+#              #
-#    Updated: 2021/05/16 11:20:26 by jfrancis         ###   ########.fr        #
+#    Updated: 2021/06/06 21:28:42 by jfrancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 LIBFT = libft.a
 
 CC = gcc
-CFLAGS = -g3 -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 FILES = ft_printf.c set_format.c ft_putchar.c ft_putstr.c set_flags.c \
 		check_params.c get_char.c define_number.c define_width.c \
 		get_wildcard_value.c get_string.c print_fill.c get_integer.c \
