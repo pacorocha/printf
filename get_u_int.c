@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 17:30:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/06/06 22:58:25 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/10 00:49:54 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ static void	u_right_align_fill(unsigned int n, int n_len, t_specs *spec)
 		output = spec->width - n_len;
 		if (spec->precision == 1 && spec->prec_size > n_len)
 			output = spec->width - spec->prec_size;
-		if (spec->precision == 1 && spec->prec_size == 0)
+		if (spec->precision == 1 && spec->prec_size == 0 && spec->prec_set == 1)
 			output++;
+		if (n == 0 && spec->precision == 1 && spec->prec_set == 0)
+			output = spec->width;
 		if (n > 2147483647 && spec->prec_size == 0 && spec->precision == 1)
 			output--;
 		print_fill(output, spec);
@@ -42,13 +44,12 @@ void	u_left_align_fill(unsigned int n, int n_len, t_specs *spec)
 {
 	int	output;
 
-	if (spec->width && spec->lalign == 1)
+	if (spec->width > 0 && spec->lalign == 1)
 	{
 		spec->filler = ' ';
+		output = spec->width - spec->prec_size;
 		if (spec->prec_size < n_len)
 			output = spec->width - n_len;
-		else
-			output = spec->width - spec->prec_size;
 		if (n == 0 && spec->precision == 1 && spec->prec_size == 0)
 			output++;
 		print_fill(output, spec);

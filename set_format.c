@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 20:34:15 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/16 11:50:42 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/09 23:57:58 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,22 @@ static void	init_format(t_specs *spec)
 	spec->start_format = 1;
 	spec->width = 0;
 	spec->prec_size = 0;
+	spec->prec_set = 0;
 	spec->lalign = 0;
 	spec->minus = 0;
 	spec->precision = 0;
+	spec->filler = ' ';
 }
 
 static void	reset_format(t_specs *spec)
 {
 	spec->width = 0;
 	spec->prec_size = 0;
+	spec->prec_set = 0;
 	spec->lalign = 0;
 	spec->minus = 0;
 	spec->precision = 0;
+	spec->filler = ' ';
 }
 
 int	set_format(const char *str, int i, va_list args, t_specs *spec)

@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 17:48:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 21:29:36 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/10 00:22:22 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	define_number(const char *str, int i, t_specs *spec)
 	if (spec->precision == 0)
 		spec->width = number;
 	if (spec->precision == 1)
+	{
 		spec->prec_size = number;
+		spec->prec_set = 1;
+	}
 	free(number_str);
 	return (i);
 }

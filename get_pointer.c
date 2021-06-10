@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 17:15:14 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/15 21:30:59 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/10 01:14:12 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	prefix_hex(unsigned long x, long n_len,
 	i = 2;
 	if (!x)
 		x = 0;
-	if (!x && spec->precision == 1)
+	if (!x && spec->precision == 1 && spec->minus == 0)
 	{
 		n_len = 0;
 		print_fill(spec->width - n_len - i, spec);
@@ -54,7 +54,10 @@ void	get_pointer(va_list args, t_specs *spec)
 	prefix_hex(x, n_len, spec);
 	hex_out = hextoa(x, 'p', spec);
 	if (!x && spec->precision == 1)
+	{
+		n_len = 0;
 		spec->total_chars--;
+	}
 	else
 		ft_putstr(hex_out);
 	free(hex_out);

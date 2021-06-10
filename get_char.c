@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:07:35 by jfrancis          #+#    #+#             */
-/*   Updated: 2021/05/09 17:55:49 by jfrancis         ###   ########.fr       */
+/*   Updated: 2021/06/10 01:19:16 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void	get_char(char c, va_list args, t_specs *spec)
 	int		output;
 
 	if (c == '%')
+	{
 		k = c;
+		if (spec->precision == 1 && spec->minus == 1)
+			spec->filler = ' ';
+	}
 	else
 		k = va_arg(args, int);
 	output = spec->width - 1;
